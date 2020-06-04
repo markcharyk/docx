@@ -1,7 +1,6 @@
 import { FooterWrapper } from "../../../../file/footer-wrapper";
 import { HeaderWrapper } from "../../../../file/header-wrapper";
 import { XmlComponent } from "../../../../file/xml-components";
-import { IColumnsAttributes } from "./columns/columns-attributes";
 import { IDocGridAttributesProperties } from "./doc-grid/doc-grid-attributes";
 import { ILineNumberAttributes } from "./line-number";
 import { IPageBordersOptions } from "./page-border";
@@ -22,7 +21,12 @@ interface IFootersOptions {
 interface ITitlePageOptions {
     readonly titlePage?: boolean;
 }
-export declare type SectionPropertiesOptions = IPageSizeAttributes & IPageMarginAttributes & IColumnsAttributes & IDocGridAttributesProperties & IHeadersOptions & IFootersOptions & IPageNumberTypeAttributes & ILineNumberAttributes & IPageBordersOptions & ITitlePageOptions;
+export declare type SectionPropertiesOptions = IPageSizeAttributes & IPageMarginAttributes & IDocGridAttributesProperties & IHeadersOptions & IFootersOptions & IPageNumberTypeAttributes & ILineNumberAttributes & IPageBordersOptions & ITitlePageOptions & {
+    readonly column?: {
+        readonly space?: number;
+        readonly count?: number;
+    };
+};
 export declare class SectionProperties extends XmlComponent {
     private readonly options;
     constructor(options?: SectionPropertiesOptions);
